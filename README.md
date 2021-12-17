@@ -12,7 +12,9 @@ This content is created using [Joplin](https://joplinapp.org/) and then exported
 
 ➡️ [Access to the content](analysis/06-STUDIES/04-Log4Shell_Vulnerability.md).
 
-💡 Use the **TOC feature** of Github the navigate in the content (icon on top left).
+💡 Use the **TOC feature** of Github the navigate in the content (icon on top left):
+
+![toc](toc-location.png)
 
 ## Folder "payloads"
 
