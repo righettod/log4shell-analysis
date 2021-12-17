@@ -1,6 +1,6 @@
 # Objective
 
-Contains all my research and content produced regarding the log4shell vulnerability.
+Contains all my research and content produced regarding the [log4shell](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) vulnerability.
 
 # Content
 
@@ -8,11 +8,19 @@ Contains all my research and content produced regarding the log4shell vulnerabil
 
 Contain the information that I gather about the vulnerability, affected versions, exploitation context/requirements, remediation plan proposal and so on...
 
-This content is created using [Joplin](https://joplinapp.org/) and then exported as markdown.
+This content is created using [Joplin](https://joplinapp.org/) and then exported as markdown to the **analysis** folder.
 
-[Access the content](analysis/06-STUDIES/04-Log4Shell_Vulnerability.md).
+➡️ [Access to the content](analysis/06-STUDIES/04-Log4Shell_Vulnerability.md).
 
 💡 Use the **TOC feature** of Github the navigate in the content (icon on top left).
+
+## Folder "payloads"
+
+Contain a collection of [log4shell](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) payloads seen on my twitter feeds.
+
+The goal is to allows testing detection regexes defined in protection systems against payloads effectively used.
+
+➡️ [Access to the content](payloads/README.md).
 
 ## Folder "playground"
 
@@ -46,4 +54,4 @@ Log4J version : 2.14.1
 [!] Inspection finished - Class found!
 ```
 
-For Windows: you can use the **bash** provided by [Git portable for Windows](https://git-scm.com/download/win) to run the script.
+💡 For Windows target: You can use the **bash** provided by [Git portable for Windows](https://git-scm.com/download/win) to run the script.
