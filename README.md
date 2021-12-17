@@ -12,6 +12,8 @@ This content is created using [Joplin](https://joplinapp.org/) and then exported
 
 [Access the content](analysis/06-STUDIES/04-Log4Shell_Vulnerability.md).
 
+💡 Use the **TOC feature** of Github the navigate in the content (icon on top left).
+
 ## Folder "playground"
 
 Contains sample java files used to test my scripts.
