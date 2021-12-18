@@ -28,6 +28,10 @@ The goal is to allows testing detection regexes defined in protection systems ag
 
 Contains sample java files used to test my scripts.
 
+Precisely, contains *log4j-core* instances of the library including ones hidden in WAR/EAR archives as well as nested jars.
+
+The 6 files are named from `AAlog4j...` to `FFlog4j...` to faciliate the review of the test results.
+
 ## Folder "sandbox"
 
 Contains a maven project used to perform testing with the log4j2 library as well as working on protection/detection technical material, like unit test cases.
