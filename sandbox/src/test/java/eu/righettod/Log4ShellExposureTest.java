@@ -21,6 +21,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -44,6 +46,10 @@ public class Log4ShellExposureTest {
         PrintStream ps = new PrintStream(captureStream);
         System.setOut(ps);
         System.setErr(ps);
+        //Remove any HTTP/FTP proxy
+        System.setProperty("java.net.useSystemProxies", "false");
+        List<String> proxyProperties = Arrays.asList("https.proxyHost", "https.proxyPort", "https.nonProxyHosts", "http.proxyHost", "http.proxyPort", "http.nonProxyHosts", "ftp.proxHost", "ftp.proxyPort", "ftp.nonProxyHosts");
+        proxyProperties.forEach(p -> System.getProperties().remove(p));
         //Set a SOCK nonexistent proxy to prevent any data to be sent out or any call to exit the network
         System.setProperty("proxySet", "true");
         System.setProperty("socksProxyHost", "10.10.10.10");

