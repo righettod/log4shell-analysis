@@ -1,5 +1,7 @@
 # Objective
 
+[![Test detection regex for bypass](https://github.com/righettod/log4shell-analysis/actions/workflows/test-detection-regex-for-bypass.yml/badge.svg?branch=main)](https://github.com/righettod/log4shell-analysis/actions/workflows/test-detection-regex-for-bypass.yml)
+
 Contains all my research and content produced regarding the [log4shell](https://nvd.nist.gov/vuln/detail/CVE-2021-44228) vulnerability.
 
 # Content
