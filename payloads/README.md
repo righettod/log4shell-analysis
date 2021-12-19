@@ -15,6 +15,7 @@ The goal is to allows testing detection regexes defined in protection systems.
 * https://twitter.com/log4j2rce/status/1469799982630944770
 * https://twitter.com/11xuxx/status/1471236310299906050
 * https://twitter.com/11xuxx/status/1471826191724257285
+* https://twitter.com/arezthehopebust/status/1472252553626742785
 * https://github.com/projectdiscovery/nuclei-templates/pull/3334/files
 * https://github.com/PortSwigger/log4shell-scanner/blob/master/src/main/kotlin/burp/BurpExtender.kt#L70
 * https://github.com/Puliczek/CVE-2021-44228-PoC-log4j-bypass-words/blob/main/src/main/java/log4j.java
