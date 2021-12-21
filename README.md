@@ -42,11 +42,11 @@ It is a [IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows
 
 ## Folder "scripts"
 
+> 💡 For Windows target: You can use the **bash** provided by [Git portable for Windows](https://git-scm.com/download/win) to run all the scripts.
+
 Contains utility script provided to help addressing this vulnerability.
 
-### identify-log4j-class-location.sh
-
-[identify-log4j-class-location.sh](scripts/identify-log4j-class-location.sh): Bash script to identify Log4J affected class for CVE-2021-44228 in a collection of EAR/WAR/JAR files
+* [identify-log4j-class-location.sh](scripts/identify-log4j-class-location.sh): Bash script to identify Log4J affected class for CVE-2021-44228 in a collection of EAR/WAR/JAR files.
 
 ```bash
 $ bash identify-log4j-class-location.sh ../playground/
@@ -62,4 +62,25 @@ Log4J version : 2.14.1
 [!] Inspection finished - Class found!
 ```
 
-💡 For Windows target: You can use the **bash** provided by [Git portable for Windows](https://git-scm.com/download/win) to run the script.
+* [identify-tcm-expressions-usage.sh](scripts/identify-tcm-expressions-usage.sh): Bash script to identify code prone to CVE-2021-45046/CVE-2021-45105 in a collection of EAR/WAR/JAR files.
+
+ℹ️ A release jar file of this [java decompiler](https://github.com/intoolswetrust/jd-cli) must be present in the current folder as well as [java](https://adoptium.net/?variant=openjdk11) (JRE) in the `$PATH`.
+
+```bash
+$ bash identify-tcm-expressions-usage.sh ../playground/
+[+] Include Log4J artefacts.
+[+] Searching for Log4J2 Thread Context Map or Log4J2 Expressions usage across '../playground/' folder...
+[*] Inspecting file: BBlog4j - core - 2.14.1.jar
+[!] Usage of the Thread Context Map identified in decompiled sources of the jar file '../playground/BBlog4j - core - 2.14.1.jar':
+/tmp/jarsrcwork/org/apache/logging/log4j/core/LogEvent.java:7:import org.apache.logging.log4j.ThreadContext;
+/tmp/jarsrcwork/org/apache/logging/log4j/core/layout/AbstractJacksonLayout.java:19:import org.apache.logging.log4j.ThreadContext;
+...
+[!] Inspection finished - Usage found!
+```
+
+```bash
+$ bash identify-tcm-expressions-usage.sh ../playground/ --ignore-log4j2-artefacts
+[+] Exclude Log4J artefacts.
+[+] Searching for Log4J2 Thread Context Map or Log4J2 Expressions usage across '../playground/' folder...
+[V] Inspection finished - No usage found!
+```
