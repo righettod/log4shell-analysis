@@ -1,3 +1,0 @@
-mvn -D"test=Log4ShellExposureTestFormatMsgNoLookupsBypass" -D"log4j2.target.version=2.15.0" -D"log4j2.formatMsgNoLookups=true" clean test
-
-mvn -D"test=Log4ShellExposureTest" -D"log4j2.target.version=2.14.1" -D"log4j2.formatMsgNoLookups=true" clean test

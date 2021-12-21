@@ -2,7 +2,7 @@
 <Configuration status="INFO">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%msg%n"/>
+            <PatternLayout pattern="${ctx:test} - %msg%n"/>
         </Console>
     </Appenders>
     <Loggers>
