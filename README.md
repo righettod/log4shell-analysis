@@ -84,3 +84,7 @@ $ bash identify-tcm-expressions-usage.sh ../playground/ --ignore-log4j2-artefact
 [+] Searching for Log4J2 Thread Context Map or Log4J2 Expressions usage across '../playground/' folder...
 [V] Inspection finished - No usage found!
 ```
+
+# Misc
+
+A companion tool was developed alongsite this analysis to help the defender side: [log4shell-payload-grabber](https://github.com/righettod/log4shell-payload-grabber).
