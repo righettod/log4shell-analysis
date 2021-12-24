@@ -87,4 +87,4 @@ $ bash identify-tcm-expressions-usage.sh ../playground/ --ignore-log4j2-artefact
 
 # Misc
 
-A companion tool was developed alongsite this analysis to help the defender side: [log4shell-payload-grabber](https://github.com/righettod/log4shell-payload-grabber).
+A companion tool was developed alongside this analysis to help the defender side: [log4shell-payload-grabber](https://github.com/righettod/log4shell-payload-grabber).
