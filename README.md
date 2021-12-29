@@ -85,6 +85,10 @@ $ bash identify-tcm-expressions-usage.sh ../playground/ --ignore-log4j2-artefact
 [V] Inspection finished - No usage found!
 ```
 
+## Folder "videos"
+
+Contains videos of demonstrations and technical tests performed during the analysis.
+
 # Misc
 
 A companion tool was developed alongside this analysis to help the defender side: [log4shell-payload-grabber](https://github.com/righettod/log4shell-payload-grabber).
